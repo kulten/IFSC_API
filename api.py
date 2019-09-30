@@ -15,11 +15,12 @@ app.config["SECRET_KEY"] = "thisisasecret"
 api = Api(app)
 try:
     logging.info("Connecting to database")
-    connection = psycopg2.connect(host="localhost",
-                                  database="ifsc_db",
+    connection = psycopg2.connect(host="ec2-54-235-92-43.compute-1.amazonaws.com",
+                                  database="d4e5tdjpttmk1r",
                                   port=5432,
-                                  user="postgres",
-                                  password="test1")
+                                  user="ztugnbiiishqzu",
+                                  password="0277e4b90265222562cedc5ab3485829330ad8bf61448b9febde93f5eacaca2c")
+
     cursor = connection.cursor()
 except Exception as db_connection_error:
     logging.error(db_connection_error)
