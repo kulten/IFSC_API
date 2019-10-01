@@ -2,6 +2,7 @@
 API that returns bank details when its IFSC code is given.
 All of the tokens used in the curl commands is just for demonstration, the tokens have an expiration time of 5 days. If the API request is rejected make sure you have a valid authentication token.
 Syntax for bank detail:
+</br>
 `curl https://my-ifsc-api.herokuapp.com/bank_detail?ifsc_code=<BANK IFSC CODE HERE>&token=<YOUR AUTHENTICATION TOKEN>`
 Syntax for bank branch details with limit and offset:
 `curl https://my-ifsc-api.herokuapp.com/bank_detail?city=<CITY>&bank_name=<BANK NAME>&limit=<LIMIT>&offset=<OFFSET>&token=<YOUR AUTHENTICATION TOKEN>`
