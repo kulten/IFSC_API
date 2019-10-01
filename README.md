@@ -1,5 +1,6 @@
 # IFSC_API
-API that returns bank details when its IFSC code is given.
+API that returns bank details when its IFSC code is given or fetch details of all bank branches in a city when supplied with the city name and bank name.
+</br>
 All of the tokens used in the curl commands is just for demonstration, the tokens have an expiration time of 5 days. If the API request is rejected make sure you have a valid authentication token.
 </br>
 Syntax for bank detail:
