@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, make_response, abort
 from flask_restful import Resource, Api
+from copy import deepcopy
 import psycopg2
 import logging
 import datetime
@@ -24,6 +25,9 @@ try:
     cursor = connection.cursor()
 except Exception as db_connection_error:
     logging.error(db_connection_error)
+
+
+database_fieldnames = ['ifsc code', 'bank id', 'branch', 'address', 'city', 'district', 'state', 'bank name']
 
 
 def _retrieve_data(city, bank_name, limit, offset):
@@ -79,6 +83,17 @@ def validate_token():
     return
 
 
+def format_data(data_rows):
+    data_dict = dict()
+    formatted_data = list()
+    for data in data_rows:
+        for index, datum in enumerate(data):
+            key = database_fieldnames[index]
+            data_dict[key] = datum
+        formatted_data.append(deepcopy(data_dict))
+    return formatted_data
+
+
 class BankAPI(Resource):
     """
     URI to select a bank's details based on the provided IFSC code
@@ -95,6 +110,7 @@ class BankAPI(Resource):
             cursor.execute("Select * from bank_branches where ifsc = %s", (ifsc_code, ))
             bank_data = cursor.fetchall()
             if bank_data:
+                bank_data = format_data(bank_data)
                 return jsonify(bank_data)
             else:
                 return jsonify({"Message: ": "No data found for the given parameters"})
@@ -126,6 +142,7 @@ class BranchAPI(Resource):
         try:
             bank_data = _retrieve_data(city, bank_name, limit, offset)
             if bank_data:
+                bank_data = format_data(bank_data)
                 return jsonify(bank_data)
             else:
                 return jsonify({"Message: ": "No data found for the given parameters"})
