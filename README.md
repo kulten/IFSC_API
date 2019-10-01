@@ -1,6 +1,7 @@
 # IFSC_API
 API that returns bank details when its IFSC code is given or fetch details of all bank branches in a city when supplied with the city name and bank name.
 </br>
+The data in the database used is from this repo: `https://github.com/snarayanank2/indian_banks`. it has more than a 100k records. Since Heroku allows only 10,000 rows in its free tier database, only about 8k rows(Shooting low, I know) are present currently in the live API.
 The API is live at `https://my-ifsc-api.herokuapp.com`
 </br>
 All of the tokens used in the curl commands is just for demonstration, the tokens have an expiration time of 5 days. If the API request is rejected make sure you have a valid authentication token.
