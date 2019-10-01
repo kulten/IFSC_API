@@ -4,8 +4,11 @@ All of the tokens used in the curl commands is just for demonstration, the token
 Syntax for bank detail:
 </br>
 `curl https://my-ifsc-api.herokuapp.com/bank_detail?ifsc_code=<BANK IFSC CODE HERE>&token=<YOUR AUTHENTICATION TOKEN>`
+</br>
 Syntax for bank branch details with limit and offset:
+</br>
 `curl https://my-ifsc-api.herokuapp.com/bank_detail?city=<CITY>&bank_name=<BANK NAME>&limit=<LIMIT>&offset=<OFFSET>&token=<YOUR AUTHENTICATION TOKEN>`
+</br>
 Curl comand to fetch bank details given an ifsc code (WINDOWS): 
 `curl https://my-ifsc-api.herokuapp.com/bank_detail?ifsc_code=abhy0065001^&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImZ5bGUiLCJleHAiOjE1NzAyODIxNDh9.HTLyDZzzUsCSjyc_VS5y6s36RqIzkFayDutxbxiBBwg`
 Curl command to fetch all bank branch details (WINDOWS):
