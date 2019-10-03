@@ -174,4 +174,4 @@ api.add_resource(BranchAPI, "/branch_detail")
 api.add_resource(Login, "/")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
