@@ -3,7 +3,7 @@ Flask==1.1.1
 Flask-RESTful==0.3.7
 Jinja2==2.10.1
 MarkupSafe==1.1.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 Werkzeug==0.16.0
 aniso8601==8.0.0
 asn1crypto==0.24.0
